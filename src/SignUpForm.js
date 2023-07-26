@@ -155,7 +155,7 @@ window.google.accounts.id.prompt();
     onSubmit = {onSubmit}>
         <Form  className=" flex flex-col justify-center items-center  ">
         <div className='flex gap-x-[1.88rem] xl:gap-x-1 sm:gap-x-[1.88rem]'>       
-
+{/* //dd */}
        
        <div onClick={SignupHandler}
         className={clsx(
