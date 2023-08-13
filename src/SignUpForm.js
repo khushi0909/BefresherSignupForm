@@ -36,7 +36,8 @@ const validationSchema = Yup.object({
 
   phone:Yup.string()
   .matches(/^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
-  ,  'Phone number is not valid').min(10,'number must be atleast 10 digit'),
+  ,  'Phone number is not valid').min(10,'number must be atleast 10 digit').required(),
+  otp:Yup.string().required("otp required"),
 
   password:Yup.string().required('PasswordRequired'),
 
@@ -116,6 +117,9 @@ window.google.accounts.id.renderButton(
 signInDivxl,{
     theme:'outline',
 size:"large",
+shape:'pill',
+logo_alignment: "center",
+click_listener: onClickHandler,
 
     width:300,
 }
@@ -126,6 +130,9 @@ window.google.accounts.id.renderButton(
     signInDivmd,{
         theme:'outline',
     size:"large",
+    shape:'pill',
+  logo_alignment: "center",
+  click_listener: onClickHandler,
 
         width:400,
     }
@@ -136,6 +143,10 @@ window.google.accounts.id.renderButton(
         signInDivsm1,{
             theme:'outline',
         size:"large",
+        shape:'pill',
+  logo_alignment: "center",
+  click_listener: onClickHandler,
+
     
             width:280,
         }
@@ -159,7 +170,7 @@ return (
   initialValues={initialValues}
   validationSchema = {validationSchema}
   onSubmit = {onSubmit}>
-      <Form  className="max-w-[31.25rem] max-h-[50.625rem] flex flex-col justify-center items-center ">
+      <Form  className="max-w-[31.25rem] max-h-[50.625rem] flex flex-col items-center ">
       <div className='flex gap-x-[1.88rem] xl:gap-x-1 sm:gap-x-[1.88rem]'>       
 
       <div onClick={SignupHandler}
@@ -185,31 +196,39 @@ return (
                       <ErrorMessage name='name'/>
           </div>
           
-          <div className='flex flex-col mt-[3.62rem]'>
-          <CustomInput
-          label=""
-          name="phone"
-          type="text"
-          placeholder="Phone*"
-        />
+          <div className='flex flex-col border-2 border-green-400 '>
+                        <div className='flex mt-[1.88rem] border-[1px]  border-[#8a8a8a] py-[0.6rem] pl-[1.56rem]  4xl:min-w-[28.125rem]  xl:min-w-[24rem] lg:min-w-[16.6rem]  md:min-w-[34rem] sm:min-w-[24rem] sm1:min-w-[18rem]  h-[3.125rem] max-h-[3.125rem] rounded-[0.3125rem] '>
+                        <Field className="flex justify-center items-center" type="text" name="phone" id="phone" placeholder="Phone*"></Field>
+                        <button type="button" className="ml-44 border-2 ">Verify</button>
+                        </div>
+                        <ErrorMessage name='phone'/>
           </div>
 
-           <div className='flex flex-col '>
+          <div className='flex flex-col border-2 border-yellow-300 '>
+              <div className="flex justify-around items-center border-[1px] border-[#8A8A8A] rounded-[0.3125rem]  pl-[0.4rem] mt-[1.88rem]     py-[1.06rem]    max-w-[28.125rem] h-[3.125rem]   4xl:min-w-[28.125rem]  xl:min-w-[24rem] lg:min-w-[16.6rem] md:min-w-[34rem] sm:min-w-[24rem]    sm1:min-w-[18rem]">  
+                        <Field className="flex justify-center items-center" type="text" name="otp" id="otp" placeholder="Enter otp"></Field>
+                        <button type="button" className="flex justify-center items-center  text-[0.78rem] text-[#484FA2]">Submit</button>
+              </div>
+                        <ErrorMessage name='otp'/>
+          </div>
+
+           <div className='flex flex-col mt-[1.88rem]'>
           
                       <Field className="border-[1px]    py-[1.06rem] pl-[1.56rem]    max-w-[28.125rem] h-[3.125rem] border-[#8A8A8A] rounded-[0.3125rem]  4xl:min-w-[28.125rem]  xl:min-w-[24rem] lg:min-w-[16.6rem] md:min-w-[34rem] sm:min-w-[24rem]   mt-[0.75rem] sm1:min-w-[18rem] " type="password" name="password" id="password" placeholder="Password*"></Field>
                       <ErrorMessage name='password'/>
           </div>
-          <div className='flex flex-col mt-[3.62rem]'>
+
+          <div className='flex flex-col mt-[1.88rem]'>
 
                       <Field className="border-[1px] py-[1.06rem] pl-[1.56rem] max-w-[28.125rem] h-[3.125rem] border-[#8A8A8A] rounded-[0.3125rem]  4xl:min-w-[28.125rem]  xl:min-w-[24rem] lg:min-w-[16.6rem] md:min-w-[34rem] sm:min-w-[24rem] sm1:min-w-[18rem] mt-[0.75rem]" type="password" name="confirmpassword" id="confirmpassword" placeholder="Confirm Password *"></Field>
                       <ErrorMessage name='confirmpassword'/>
           </div>
 
-          <div className='mt-[0.75rem] text-base font-normal tracking-tight leading-4'>
+          <div className=' mt-[0.75rem] text-base font-normal tracking-tight leading-4 max-w-[28.125rem]  w-full'>
           Already have an account? <span className='text-[#484FA2] text-base font-normal tracking-tight'>Login</span> 
           </div>
 
-          <button type='submit' className='p-4 mt-[3.75rem] max-w-[28.125rem] w-full h-[3.13rem] rounded-[2.5rem] bg-[#494DA2] text-white text-[1.3125rem] font-semibold leading-1.31 tracking-tight   4xl:min-w-[28.125rem]  xl:min-w-[24rem] lg:min-w-[16.6rem] md:min-w-[34rem] sm:min-w-[24rem]  sm1:min-w-[18rem] rounded-[0.3125rem]  leading-1.31 ' >Sign Up</button>
+          <button type='submit' className='flex justify-center items-center p-4 mt-[2.82rem] max-w-[28.125rem] h-[3.13rem] rounded-[2.5rem] bg-[#494DA2] text-white text-[1.3125rem] font-semibold leading-1.31 tracking-tight   4xl:min-w-[28.125rem]  xl:min-w-[24rem] lg:min-w-[16.6rem] md:min-w-[34rem] sm:min-w-[24rem]  sm1:min-w-[18rem] leading-1.31 ' >Sign Up</button>
 
 
           <div className=' mt-[1.88rem]'>
@@ -241,14 +260,14 @@ return (
           </div>            
          
 
-<div className=' flex m-auto max-w-[28.125rem] mt-[1.88rem] 2xl:mt-4 max-h-[3.125rem] mb-2'>
+<div className=' flex m-auto max-w-[28.125rem] w-[25rem]  mt-[1.88rem]  2xl:mt-4 max-h-[3.125rem] mb-2'>
 <FacebookLogin
-       appId="" //APP ID NOT CREATED YET         fields="name,email,picture"   
-                  autoLoad     
-                 callback={responseFacebook}       
-                   className="w-[28.125rem]   "     
-                  render={renderProps => (
-          <button className="p-2 flex justify-center items-center gap-[0.75rem] max-w-[25.125rem] w-full  rounded-full border-[1px] border-[#dad9d9]" onClick={renderProps.onClick}><span className='inline-block w-[25px] h-[25px] text-base font-medium leading-4 tracking-tight'> <img src={facebooklogo } alt="facebooklogin"  /></span>Sign up with Facebook</button>
+                   appId="" //APP ID NOT CREATED YET         fields="name,email,picture"   
+                   autoLoad     
+                   callback={responseFacebook}       
+                   className="w-[300.125rem]   "     
+                   render={renderProps => (
+          <button className=" p-2 px-12 flex justify-center items-center gap-[0.75rem]  w-full  rounded-full border-[1px] border-[#dad9d9]" onClick={renderProps.onClick}><span className='inline-block w-[25px] h-[25px] text-base font-medium leading-4 tracking-tight'> <img src={facebooklogo } alt="facebooklogin"  /></span>Sign up with Facebook</button>
         )}
     />
 </div>
