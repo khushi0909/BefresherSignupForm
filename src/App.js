@@ -8,8 +8,8 @@ import SignupForm2 from './SignupForm2'
 function App() {
   return (
     <div className="App">
-      {/* <DummyHeader/> */}
-    <SignupForm/>
+     <DummyHeader/> 
+          <SignupForm/>
     {/* <SignupForm2/> */}
     {/* <SignupForm1/> */}
     </div>
