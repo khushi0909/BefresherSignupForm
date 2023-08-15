@@ -237,7 +237,7 @@ return (
           <div className=' mt-[1rem] w-full max-w-[28.125rem] border-[1px] border-[#c1bfbf]'>
           </div>  
           <div   className='mt-[1rem] 4xl:min-w-[28.125rem]  xl:min-w-[24rem] lg:min-w-[16.6rem] md:min-w-[0rem] sm:min-w-[24rem] sm1:min-w-[18rem] h-[3.13rem] '>        
-                  <div id="signInDiv"  className=' border-2 border-yellow-300 4xl:min-w-[28.125rem] xl:min-w-[24rem] lg:min-w-[16.6rem] md:min-w-[34rem] sm:min-w-[24rem] sm1:min-w-[18rem] h-[3.13rem] 4xl:block   xl:hidden '></div>
+                  <div id="signInDiv"  className='  4xl:min-w-[28.125rem] xl:min-w-[24rem] lg:min-w-[16.6rem] md:min-w-[34rem] sm:min-w-[24rem] sm1:min-w-[18rem] h-[3.13rem] 4xl:block   xl:hidden '></div>
                   <div id="signInDiv-xl"  className=' 4xl:min-w-[28.125rem] xl:min-w-[24rem] lg:min-w-[16.6rem] md:min-w-[34rem] sm:min-w-[24rem] sm1:min-w-[18rem] h-[3.13rem]   4xl:hidden  xl:block md:hidden'></div>
                   <div id="signInDiv-md"  className='md:flex md:items-center md:justify-center 4xl:hidden 4xl:min-w-[28.125rem] xl:min-w-[24rem] lg:min-w-[16.6rem] md:min-w-[0rem] sm:min-w-[24rem] sm1:min-w-[18rem] h-[3.13rem]  sm1:hidden'></div>
                   <div id="signInDiv-sm1"  className='4xl:hidden 4xl:min-w-[28.125rem] xl:min-w-[24rem] lg:min-w-[16.6rem] md:min-w-[34rem] sm:min-w-[24rem] sm1:min-w-[18rem] h-[3.13rem]    sm1:block'></div>
